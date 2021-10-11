@@ -1,9 +1,34 @@
 <h1>新規投稿</h1>
-
 <%= form_with model: @post, url:posts_path, local:true do |f| %>
-  <h4>名前</h4>
-  <%= f.text_field :name %>
-  <h4>場所</h4>
-  <%= f.text_field :location %>
-  <%= f.submit '投稿' %>
+  <h3>店名</h3>
+  <%= f.text_field :name, size: "60x1" %>
+  <h3>場所</h3>
+  <h5>都道府県・市区町村・番地</h5>
+  <h5><%= f.text_field :location, size: "60x1" %></h5>
+  <h5>建物名・号室</h5>
+
+  <h3>写真</h3>
+  <%= f.attachment_field :image %>
+
+  <h3>営業時間</h3>
+  <%= f.time_select :business_hours_start, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %>
+  〜
+  <%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %>
+
+  <h3>料金体系</h3>
+  <h5><%= f.text_field :charge_system, size: "8x1" %>円 〜 <%= f.text_field :charge_system2, size: "8x1" %>円</h5>
+  <h3>wifi設備</h3>
+  <%= f.radio_button :wifi_equipment, true %>
+  <%= f.label "あり" %>
+  <%= f.radio_button :wifi_equipment, false %>
+  <%= f.label "なし" %>
+  <h3>電源</h3>
+  <%= f.radio_button :power, true %>
+  <%= f.label "あり" %>
+  <%= f.radio_button :power, false %>
+  <%= f.label "なし" %>
+  <h3>説明</h3>
+  <%= f.text_area :caption, size: "80x5" %>
+
+  <p><%= f.submit '投稿' %></p>
 <% end %>

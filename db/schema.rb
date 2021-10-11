@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_10_083828) do
+ActiveRecord::Schema.define(version: 2021_10_11_070657) do
 
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,9 +21,7 @@ ActiveRecord::Schema.define(version: 2021_10_10_083828) do
 
   create_table "posts", force: :cascade do |t|
     t.string "name"
-    t.integer "image_id"
     t.string "location"
-    t.string "business_hours"
     t.string "charge_system"
     t.boolean "wifi_equipment"
     t.boolean "power"
@@ -31,6 +29,10 @@ ActiveRecord::Schema.define(version: 2021_10_10_083828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.text "image_id"
+    t.string "charge_system2"
+    t.time "business_hours_end"
+    t.time "business_hours_start"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -52,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_10_10_083828) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

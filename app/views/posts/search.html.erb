@@ -1,12 +1,10 @@
-<h1>店舗一覧</h1>
+<h4>現在地から探す</h4>
 <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
   <%= form.text_field :keyword %>
   <%= form.submit "検索" %>
 <% end %>
 
-
 <% @posts.each do |post| %>
-
   <%= link_to post_path(post.id) do %>
     <p>店名: <%= post.name %></p>
     <p>場所: <%= post.location %></p>

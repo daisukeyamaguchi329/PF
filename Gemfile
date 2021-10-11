@@ -63,4 +63,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'devise'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem 'kaminari','~> 1.2.1'
+gem 'bootstrap', '~> 4.5'
+gem 'font-awesome-sass', '~> 5.13'
+gem 'pry-byebug'
+gem 'rails-i18n'
+gem "dotenv-rails"
+gem 'rspec-rails'
+gem 'activeadmin'
+gem 'jquery-rails'
 
+gem 'bulma-rails'

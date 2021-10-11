@@ -7,10 +7,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/232bbef7fb.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <% if user_signed_in? %>
+     <li>
+        <%= link_to '探す', posts_path %>
+     </li>
+     <li>
+        <%= link_to '投稿フォーム', new_post_path %>
+     </li>
+      <li>
+        <%= link_to 'マイページ', user_path(current_user.id) %>
+      </li>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>

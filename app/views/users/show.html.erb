@@ -1,0 +1,19 @@
+<h2>名前</h2>
+<p><%= @user.name %></p>
+<h2>画像</h2>
+<p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100 %></p>
+<h2>メールアドレス</h2>
+<p><%= @user.email %></p>
+
+<% if @user.id == current_user.id %>
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+<% end %>
+<p><%= link_to "お問い合わせフォーム", new_contact_path %></p>
+
+<% @posts.each do |post| %>
+  <p>名前</p>
+  <span><%= post.name %></span>
+  <p>場所</p>
+  <span><%= post.location %></span>
+<% end %>
+<%= paginate @posts %>
