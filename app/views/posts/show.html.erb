@@ -1,10 +1,24 @@
 <h2>店名: <%= @post.name %>　場所: <%= @post.location %></h2>
 <h2>レビューを見る</h2>
 <h2>レビューを書く</h2>
+
+  <%= render 'reviews/form', review: @review, post: @post %>
+  
+  <% if @review.errors.any? %>
+  <div class="notification is-danger">
+    <h2><%= @review.errors.count %>件のエラーがあります。</h2>
+    <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
 <%= attachment_image_tag @post, :image, :fill, 300, 300 %>
 <h2>
   営業時間: <%= @post.business_hours_start.strftime('%-H:%M') %>〜<%= @post.business_hours_end.strftime('%-H:%M') %>
-　料金体系: <%= @post.charge_system %>円〜<%= @post.charge_system2 %>円
+　平均予算: <%= @post.charge_system %>円〜<%= @post.charge_system2 %>円
 　wifi設備: <%= @post.wifi_equipment ? 'あり' : 'なし' %>
 　電源: <%= @post.power ? 'あり' : 'なし' %></h2>
 <h2>説明: <%= @post.caption %></h2>

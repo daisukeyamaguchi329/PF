@@ -15,7 +15,7 @@
   〜
   <%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %>
 
-  <h3>料金体系</h3>
+  <h3>平均予算</h3>
   <h5><%= f.text_field :charge_system, size: "8x1" %>円 〜 <%= f.text_field :charge_system2, size: "8x1" %>円</h5>
   <h3>wifi設備</h3>
   <%= f.radio_button :wifi_equipment, true %>
