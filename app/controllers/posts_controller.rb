@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def search
     @posts = Post.search(params[:keyword]).page(params[:page]).reverse_order
   end
@@ -9,7 +10,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @review = Review.new
   end
 
   def new

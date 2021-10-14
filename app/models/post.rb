@@ -13,7 +13,7 @@ class Post < ApplicationRecord
     end
   end
   
-  def avg_score
+  def avg_rate
     unless self.reviews.empty?
       reviews.average(:rate).round(1).to_f
     else
@@ -21,7 +21,7 @@ class Post < ApplicationRecord
     end
   end
     
-  def review_score_percentage
+  def review_rate_percentage
     unless self.reviews.empty?
       reviews.average(:rate).round(1).to_f*100/5
     else
