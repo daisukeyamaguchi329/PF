@@ -76,3 +76,9 @@ gem 'activeadmin'
 gem 'jquery-rails'
 
 gem 'bulma-rails'
+
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
