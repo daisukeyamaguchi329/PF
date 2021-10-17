@@ -1,9 +1,9 @@
 class FavoritesController < ApplicationController
-　before_action :set_post
-  before_action :authenticate_user!  
+  before_action :set_post
+  before_action :authenticate_user!
   def index
   end
-
+  
   def create
     if @post.user_id != current_user.id   # 投稿者本人以外に限定
       @favorite = Favorite.create(user_id: current_user.id, post_id: @post.id)
