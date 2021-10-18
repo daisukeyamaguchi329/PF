@@ -68,12 +68,19 @@ gem "refile-mini_magick"
 gem 'kaminari','~> 1.2.1'
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
-gem 'pry-byebug'
 gem 'rails-i18n'
 gem "dotenv-rails"
 gem 'rspec-rails'
 gem 'activeadmin'
 gem 'jquery-rails'
+
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
+  gem 'pry-rails'
+end
+
+
 
 gem 'bulma-rails'
 
