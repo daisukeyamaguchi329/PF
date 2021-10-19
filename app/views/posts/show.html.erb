@@ -1,6 +1,8 @@
 <h2>店名: <%= @post.name %>　場所: <%= @post.location %></h2>
 
-
+<div class='star-btn' id="favorite_<%= @post.id %>">
+  <%= render "favorites/favorite", post: @post %>
+</div>
 <%= link_to "レビューを書く", new_post_review_path(@post) %>
 <%= link_to "レビューを見る", post_reviews_path(@post) %>
   

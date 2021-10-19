@@ -3,6 +3,9 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-5">
+        
+        
+        
         <div class="search">
         <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
           <input type="search" name="q" placeholder="現在地から探す">
@@ -10,11 +13,14 @@
         <% end %>
        </div>
        <% @posts.each do |post| %>
+       
           <div class="card mb-6">
             <header class="card-header">
-              <%= render 'favorites/favorite', favorite: @favorite %>
 
               <p class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %></p>
+              <div class='star-btn' id="favorite_<%= post.id %>">
+                 <%= render "favorites/favorite", post: post %>
+              </div>
             </header>
          
               
