@@ -1,8 +1,15 @@
 <div class="container">
-<div class="columns is-centered"> 
+<div class="columns is-centered">
 <div class="column is-5">
-  
+
 <h1>新規投稿</h1>
+
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
+  <% @post.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <%= form_with model: @post, url:posts_path, local:true do |f| %>
   <h3>店名</h3>
   <%= f.text_field :name, size: "60x1" %>
@@ -36,7 +43,7 @@
 
   <p><%= f.submit '投稿' %></p>
 <% end %>
- 
+
 </div>
 </div>
 </div>

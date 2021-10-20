@@ -73,6 +73,8 @@ gem "dotenv-rails"
 gem 'rspec-rails'
 gem 'activeadmin'
 gem 'jquery-rails'
+gem "geocoder"
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

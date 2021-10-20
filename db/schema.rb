@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_11_070657) do
+ActiveRecord::Schema.define(version: 2021_10_20_091721) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.integer "subject"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -33,6 +42,8 @@ ActiveRecord::Schema.define(version: 2021_10_11_070657) do
     t.string "charge_system2"
     t.time "business_hours_end"
     t.time "business_hours_start"
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "reviews", force: :cascade do |t|
