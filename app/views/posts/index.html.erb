@@ -17,10 +17,18 @@
           <div class="card mb-6">
             <header class="card-header">
 
-              <p class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %></p>
+              <p class="card-header-name">店名: <%= post.name %>  <br>場所: <%= post.location %>   
+      
+            
+             <div class="star">
               <div class='star-btn' id="favorite_<%= post.id %>">
+                <% if post.user_id != current_user.id %>
                  <%= render "favorites/favorite", post: post %>
+                <% end %>
               </div>
+            </div>
+              
+              </p>
             </header>
          
               

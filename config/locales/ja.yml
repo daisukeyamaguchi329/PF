@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+  activerecord:
+    models:
+      review: レビュー
+    attributes:
+      review:
+        rate: 評価
+        comment: コメント
+      post:
+        name: 店名
+        location: 場所
+        business_hours_start: 営業時間
+        business_hours_end: 営業時間
+        charge_system: 平均予算
+        charge_system2: 平均予算
+        wifi_equipment: wifi設備
+        power: コンセント
+        caption: 説明

@@ -1,4 +1,9 @@
+<div class="container">
+<div class="columns is-centered">
+<div class="column is-5">
+
 <h1>編集</h1>
+
 <%= form_with model: @post, url:post_path(@post.id), local:true do |f| %>
   <h3>店名</h3>
   <%= f.text_field :name, size: "60x1" %>
@@ -18,17 +23,21 @@
   <h3>平均予算</h3>
   <h5><%= f.text_field :charge_system, size: "8x1" %>円 〜 <%= f.text_field :charge_system2, size: "8x1" %>円</h5>
   <h3>wifi設備</h3>
-  <%= f.radio_button :wifi_equipment, true %>
+  <%= f.radio_button :wifi_equipment, :true %>
   <%= f.label "あり" %>
-  <%= f.radio_button :wifi_equipment, false %>
+  <%= f.radio_button :wifi_equipment, :false %>
   <%= f.label "なし" %>
   <h3>電源</h3>
-  <%= f.radio_button :power, true %>
+  <%= f.radio_button :power, :true %>
   <%= f.label "あり" %>
-  <%= f.radio_button :power, false %>
+  <%= f.radio_button :power, :false %>
   <%= f.label "なし" %>
   <h3>説明</h3>
   <%= f.text_area :caption, size: "80x5" %>
 
   <p><%= f.submit '投稿' %></p>
 <% end %>
+
+</div>
+</div>
+</div>

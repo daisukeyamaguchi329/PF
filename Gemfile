@@ -73,6 +73,8 @@ gem "dotenv-rails"
 gem 'rspec-rails'
 gem 'activeadmin'
 gem 'jquery-rails'
+
+gem 'rails-i18n'
 gem "geocoder"
 
 
@@ -85,7 +87,6 @@ end
 
 
 gem 'bulma-rails'
-
 
 gem 'dotenv-rails'
 group :production do

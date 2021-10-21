@@ -17,3 +17,5 @@ module Pf
     # the framework and any gems in your application.
   end
 end
+
+ I18n.default_locale = :ja

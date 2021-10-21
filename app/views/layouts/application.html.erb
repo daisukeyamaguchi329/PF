@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pf</title>
+    <title>PF</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,9 +11,13 @@
   </head>
 
   <body>
+     <header class="header">
+        <nav class="navbar navbar-expend-lg navbar-light" >
+          <div class="container">
+
     <% if user_signed_in? %>
      <li>
-        <%= link_to '探す', posts_path %>
+        <%= link_to '投稿一覧', posts_path %>
      </li>
      <li>
         <%= link_to '投稿フォーム', new_post_path %>
@@ -48,6 +52,25 @@
      <% if user_signed_in? %>
       <p class=“navbar-item”>ようこそ<%= current_user.name %>さん</p>
     <% end %>
+    
+    
+   </div>
+        </nav>
+      </header>
+      
+      
+      <main>
     <%= yield %>
+    </main>
+    <footer class="footer text-black align-items-center d-flex justify-content-center">
+        　<span>© All rights reserved by KaitekiWork</span>
+          <div class="justify-content-center align-items-center social-items">
+            <i class="fab fa-facebook-square fa-2x text-black"></i>
+            <i class="fab fa-twitter-square fa-2x text-black"></i>
+            <i class="fab fa-instagram fa-2x text-black"></i>
+            <i class="fas fa-envelope fa-2x text-black"></i>
+          </div>
+      </footer>
+
   </body>
 </html>

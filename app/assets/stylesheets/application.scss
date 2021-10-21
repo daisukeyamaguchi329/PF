@@ -14,18 +14,16 @@
  *= require_self
  */
 
+ 
+
 @import "bulma";
 
 .notification:not(:last-child){
    margin-bottom: 0;
 }
 
-a {
- color: white;
- text-decoration: none;
-}
 
-body {
+main {
  min-height: 100vh;
  color : white;
  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);

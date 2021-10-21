@@ -1,6 +1,15 @@
 class Post < ApplicationRecord
 
+  validates :name, presence: true
   validates :location, presence: true
+  validates :business_hours_start, presence: true
+  validates :business_hours_end, presence: true
+  validates :charge_system, presence: true
+  validates :charge_system2, presence: true
+  validates :wifi_equipment ,inclusion:{in: [true, false]}
+  validates :power ,inclusion: [true, false]
+  validates :caption, presence: true
+
 
   geocoded_by :location
   after_validation :geocode, if: :location_changed?

@@ -1,11 +1,32 @@
-<h2>店名: <%= @post.name %>　場所: <%= @post.location %></h2>
+<div class="post_body">
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
+
+
+
+<div class="card mb-6">
+  <header class="card-header">
+
+  <p class="is-size-4 mb-3">店名: <%= @post.name %><br>
+場所: <%= @post.location %></p>
+
+    </header>
+
+
+
+    <div class="card-content">
+
+
+
 
 <script type="text/javascript">
   function initMap() {
 #latitude,longitudeから位置を特定
     var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
     var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15, 
+              zoom: 15,
               center: test
               });
     var transitLayer = new google.maps.TransitLayer();
@@ -48,22 +69,60 @@
 <div class='star-btn' id="favorite_<%= @post.id %>">
   <%= render "favorites/favorite", post: @post %>
 </div>
-<%= link_to "レビューを書く", new_post_review_path(@post) %>
-<%= link_to "レビューを見る", post_reviews_path(@post) %>
-  
 
-<%= attachment_image_tag @post, :image, :fill, 300, 300 %>
-<h2>
+
+  <div class="content review">
+<%= link_to new_post_review_path(@post),class: "button card-footer-item" do %>
+    レビューを書く
+  <% end %>
+  <%= link_to post_reviews_path(@post), method: :delete,class: "button card-footer-item" do %>
+      レビューを見る
+  <% end %>
+  </div>
+
+
+<!--<div class="content image">-->
+<%= attachment_image_tag @post, :image, format:'jpg', fallback:"no_image2", size: "100x100" %>
+<!--</div>-->
+
+    <div class="content detail">
   営業時間: <%= @post.business_hours_start.strftime('%-H:%M') %>〜<%= @post.business_hours_end.strftime('%-H:%M') %>
 　平均予算: <%= @post.charge_system %>円〜<%= @post.charge_system2 %>円
 　wifi設備: <%= @post.wifi_equipment ? 'あり' : 'なし' %>
-　電源: <%= @post.power ? 'あり' : 'なし' %></h2>
-<h2>説明: <%= @post.caption %></h2>
+　電源: <%= @post.power ? 'あり' : 'なし' %>
+　 </div>
 
-<h2>投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %>　更新日時: <%= @post.updated_at.strftime('%Y/%m/%d') %></h2>
-<h2>
-  <%= link_to "編集", edit_post_path(@post.id) %>
-  <% if @post.user == current_user %>
-    <%= link_to "削除", post_path(@post), method: :delete %>
+ <div class="content caption">
+店の雰囲気<br> <%= @post.caption %>
+</div>
+<div class="content create">
+投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %><span style=”margin-right: 2em;”></span>
+更新日時: <%= @post.updated_at.strftime('%Y/%m/%d') %>
+</div>
+
+ </div>
+
+  <footer class="card-footer">
+
+
+
+  <%= link_to edit_post_path(@post.id),class: "button card-footer-item" do %>
+      編集
   <% end %>
-</h2>
+
+  <%= link_to post_path(@post), method: :delete,class: "button card-footer-item" do %>
+      削除
+  <% end %>
+
+
+</footer>
+
+ </div>
+
+
+
+</div>
+    </div>
+  </div>
+</section>
+</div>

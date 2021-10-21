@@ -5,11 +5,16 @@
 <h1>新規投稿</h1>
 
 <% if @post.errors.any? %>
-  <%= @post.errors.count %>件のエラーが発生しました
+<div class="notification is-danger">
+  <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+   <ul>
   <% @post.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
+  </ul>
+  </div>
 <% end %>
+
 <%= form_with model: @post, url:posts_path, local:true do |f| %>
   <h3>店名</h3>
   <%= f.text_field :name, size: "60x1" %>
@@ -33,7 +38,7 @@
   <%= f.label "あり" %>
   <%= f.radio_button :wifi_equipment, false %>
   <%= f.label "なし" %>
-  <h3>電源</h3>
+  <h3>コンセント</h3>
   <%= f.radio_button :power, true %>
   <%= f.label "あり" %>
   <%= f.radio_button :power, false %>
