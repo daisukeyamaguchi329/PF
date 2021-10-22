@@ -1,43 +1,34 @@
 <div class="container">
-<div class="columns is-centered">
-<div class="column is-5">
-
-<h1>編集</h1>
-
-<%= form_with model: @post, url:post_path(@post.id), local:true do |f| %>
-  <h3>店名</h3>
-  <font color="black"><%= f.text_field :name, size: "60x1" %></font>
-  <h3>場所</h3>
-  <h5>都道府県・市区町村・番地</h5>
-  <font color="black"><h5><%= f.text_field :location, size: "60x1" %></h5></font>
-  <h5>建物名・号室</h5>
-
-  <h3>写真</h3>
-  <%= f.attachment_field :image %>
-
-  <h3>営業時間</h3>
-  <font color="black"><%= f.time_select :business_hours_start, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
-  〜
-  <font color="black"><%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
-
-  <h3>平均予算</h3>
-  <font color="black"><h5><%= f.text_field :charge_system, size: "8x1" %>円</font> 〜 <font color="black"><%= f.text_field :charge_system2, size: "8x1" %>円</h5></font>
-  <h3>wifi設備</h3>
-  <%= f.radio_button :wifi_equipment, :true %>
-  <%= f.label "あり" %>
-  <%= f.radio_button :wifi_equipment, :false %>
-  <%= f.label "なし" %>
-  <h3>電源</h3>
-  <%= f.radio_button :power, :true %>
-  <%= f.label "あり" %>
-  <%= f.radio_button :power, :false %>
-  <%= f.label "なし" %>
-  <h3>説明</h3>
-  <font color="black"><%= f.text_area :caption, size: "80x5" %></font>
-
-  <p><%= f.submit '投稿' %></p>
-<% end %>
-
-</div>
-</div>
+  <div class="columns is-centered">
+    <div class="column is-5">
+    <p class="is-size-4 mb-3">投稿を編集</p>
+    <%= form_with model: @post, url:post_path(@post.id), local:true do |f| %>
+      <p>店名</p>
+      <font color="black"><%= f.text_field :name, size: "60x1" %></font>
+      <p>場所: 都道府県・市区町村・番地</p>
+      <font color="black"><p><%= f.text_field :location, size: "60x1" %></p></font>
+      <p>写真</p>
+      <%= f.attachment_field :image %>
+      <p>営業時間</p>
+      <font color="black"><%= f.time_select :business_hours_start, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
+      〜
+      <font color="black"><%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
+      <p>平均予算</p>
+      <font color="black"><p><%= f.text_field :charge_system, size: "8x1" %>円</font> 〜 <font color="black"><%= f.text_field :charge_system2, size: "8x1" %>円</p></font>
+      <p>wifi設備</p>
+      <%= f.radio_button :wifi_equipment, :true %>
+      <%= f.label "あり" %>
+      <%= f.radio_button :wifi_equipment, :false %>
+      <%= f.label "なし" %>
+      <p>電源</p>
+      <%= f.radio_button :power, :true %>
+      <%= f.label "あり" %>
+      <%= f.radio_button :power, :false %>
+      <%= f.label "なし" %>
+      <p>説明</p>
+      <font color="black"><%= f.text_area :caption, size: "80x5" %></font>
+      <a href="#" class="btn-square-little-rich"><font color="black"><%= f.submit '編集' %></font></a>
+    <% end %>
+    </div>
+  </div>
 </div>

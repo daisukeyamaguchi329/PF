@@ -1,68 +1,58 @@
- 
- 
+<div class="review_index">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="card mb-6">
-          <header class="card-header">
-            <p class="card-header-title">
-              <%= @post.name %>
-            </p>
-          </header>
-          <div class="card-content">
-            <div class="content average-score">
-              <div class="star-rating mb-2">
-               <div class="star-rating-front" style="width: <%= @post.review_rate_percentage %>%">★★★★★</div>
-               <div class="star-rating-back">★★★★★</div>
+          <% if @reviews.present? %>
+            <header class="card-header">
+              <p class="card-header-title"><%= @post.name %></p>
+            </header>
+
+            <div class="card-content">
+              <div class="content average-score">
+                <div class="star-rating mb-2">
+                  <div class="star-rating-front" style="width: <%= @post.review_rate_percentage %>%">★★★★★</div>
+                  <div class="star-rating-back">★★★★★</div>
+                 </div>
+                <div class="average-score-display ml-3 pt-2"><%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）</div>
+                </div>
               </div>
-              <div class="average-score-display ml-3 pt-2">
-                <%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）
+
+              <div class="card-footer">
+                <%= link_to post_path(@post.id),class: "button card-footer-item" do %>詳細に戻る<% end %>
+                <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを書く<% end %>
               </div>
             </div>
-          </div>
-          <div class="card-footer">
-          <%= link_to post_path(@post.id),class: "button card-footer-item" do %>
-            詳細に戻る
-          <% end %>
-          <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>
-            レビューを書く
-          <% end %>
 
-          </div>
+            <div class="comment">
+              <table class="table is-fullwidth has-text-centered">
+                <thead>
+                  <tr>
+                    <td width="25%">ユーザー名</td>
+                    <td width="15%">点数</td>
+                    <td width="50%">コメント</td>
+                    <td width="10%"></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @reviews.each do |review| %>
+                    <tr>
+                      <td width="25%"><%= review.user.name %></td>
+                      <td width="15%"><%= review.rate %>点</td>
+                      <td width="50%"><%= simple_format(review.comment) %></td>
+                      <td width="10%"><%= link_to "reviews/#{review.id}", method: :delete, class: "button card-item" do %>削除<% end %></td>
+                    </tr>
+                  <% end %>
+
+                </tbody>
+              </table>
+            </div>
+        <% else %>
+          <div class = "no_review"><p class="is-size-1">レビューがありません。</p></div>
+        <% end %>
         </div>
-
-
- <div class="comment">
-        <table class="table is-fullwidth has-text-centered">
-         
-          <thead>
-            <tr>
-              <td width="25%">ユーザー名</td>
-              <td width="15%">点数</td>
-              <td width="50%">コメント</td>
-              <td width="10%"></td>
-            </tr>
-          </thead>
-          <tbody>
-            <% @reviews.each do |review| %>
-              <tr>
-                <td width="25%"><%= review.user.name %></td>
-                <td width="15%"><%= review.rate %>点</td>
-                <td width="50%"><%= simple_format(review.comment) %></td>
-                <td width="10%">
-                   <%= link_to "reviews/#{review.id}", method: :delete, class: "button card-item" do %>
-                    削除
-                   <% end %>
-              　</td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-    </div>      
-        
-        
       </div>
     </div>
   </div>
-
+</div>
 

@@ -1,27 +1,60 @@
-<div class="container">
-<div class="columns is-centered"> 
-<div class="column is-5">
-
-<h2>名前</h2>
-<p><%= @user.name %></p>
-<h2>画像</h2>
-<p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100 %></p>
-<h2>メールアドレス</h2>
-<p><%= @user.email %></p>
-
-<% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-<% end %>
-<p><%= link_to "お問い合わせフォーム", new_contact_path %></p>
-
-<% @posts.each do |post| %>
-  <p>名前</p>
-  <span><%= post.name %></span>
-  <p>場所</p>
-  <span><%= post.location %></span>
-<% end %>
-<%= paginate @posts %>
-
-</div>
-</div>
+<div class = "profile_page">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        
+        <div class="card mb-6">
+        <header class="card-header">
+         <p>名前: <%= @user.name %><br>メールアドレス: <%= @user.email %></p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p>プロフィール画像</p>
+            <p><%= attachment_image_tag @user, :profile_image, format:'jpg', fallback:"no_image2" %></p>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <% if @user.id == current_user.id %>
+          <%= link_to edit_user_path(@user),class: "button card-footer-item" do %>プロフィール編集<% end %>
+          <% end %>
+          <%= link_to new_contact_path,class: "button card-footer-item" do %>お問い合わせフォーム<% end %>
+        </div>
+        
+        <% @posts.each do |post| %>
+          <div class="card mb-6">
+          <header class="card-header">
+            <p class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %></p>
+              <div class="star">
+                <div class='star-btn' id="favorite_<%= post.id %>">
+                <% if post.user_id != current_user.id %>
+                 <div class = "favorite-star"><%= render "favorites/favorite", post: post %></div>
+                <% end %>
+                </div>
+              </div>
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              <div class="content average-score">
+                <div class="star-rating mb-2">
+                  <div class="star-rating-front" style="width: <%= post.review_rate_percentage %>%">★★★★★</div>
+                  <div class="star-rating-back">★★★★★</div>
+                </div>
+                <div class="average-score-display ml-3 pt-2">
+                  <%= post.avg_rate %>点（<%= post.reviews.count %>件のレビュー）
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <%= link_to post_path(post.id),class: "button card-footer-item" do %>詳細を見る<% end %>
+            <%= link_to post_reviews_path(post),class: "button card-footer-item" do %>レビューを見る<% end %>
+          </footer>
+          </div>
+        <% end %>
+        <%= paginate @posts %>
+      
+      </div>
+    </div>
+  </div>
 </div>
