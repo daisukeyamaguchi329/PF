@@ -1,38 +1,37 @@
-<div class="post">
+<div class="post_body">
 <section class="section mt-6">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-5">
-        
-        
-        
+
+
         <div class="search">
         <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
-          <input type="search" name="q" placeholder="現在地から探す">
-          <%= form.submit "検索" %>
+        <font color="black"><input type="search" name="q" placeholder="現在地から探す"></font>
+
+          <a href="#" class="btn-square-toy"><%= form.submit "検索", :name => nil %></a>
         <% end %>
        </div>
        <% @posts.each do |post| %>
-       
+
           <div class="card mb-6">
             <header class="card-header">
 
-              <p class="card-header-name">店名: <%= post.name %>  <br>場所: <%= post.location %>   
-      
-            
+              <p class="card-header-name">店名: <%= post.name %>  <br>場所: <%= post.location %>
+
              <div class="star">
               <div class='star-btn' id="favorite_<%= post.id %>">
                 <% if post.user_id != current_user.id %>
-                 <%= render "favorites/favorite", post: post %>
+                 <div class = "favorite-star"><%= render "favorites/favorite", post: post %></div>
                 <% end %>
               </div>
             </div>
-              
+
               </p>
             </header>
-         
-              
- 
+
+
+
             <div class="card-content">
               <div class="content">
                 <div class="content average-score">
