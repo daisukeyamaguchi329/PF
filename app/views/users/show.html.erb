@@ -10,7 +10,7 @@
         <div class="card-content">
           <div class="content">
             <p>プロフィール画像</p>
-            <p><%= attachment_image_tag @user, :profile_image, format:'jpg', fallback:"no_image2" %></p>
+            <p><div class="image2"><%= attachment_image_tag @user, :profile_image, format:'jpg', fallback:"no_image" %></div></p>
           </div>
         </div>
         <footer class="card-footer">

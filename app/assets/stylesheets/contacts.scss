@@ -1,3 +1,12 @@
-// Place all the styles related to the contacts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.contact_require {
+  position: relative;
+  padding: 0.05em 0.01em;
+  background-color: red;
+  color: white;
+  font-weight: lighter;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.56);
+}
+
+.contact_new {
+  padding-top: 100px;
+}

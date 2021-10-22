@@ -1,13 +1,15 @@
+<div class = "mypage_edit">
 <div class="container">
   <div class="columns is-centered">
     <div class="column is-5">
-      <p class="is-size-4 mb-3">プロフィール編集</p>
+        <div class = "mypage"><p class="is-size-4 mb-3">プロフィール編集</p></div>
       <%= form_with model:@user, local:true do |f| %>
-        <p><label for="inputName">名前</label><font color="black"><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %></font></p>
-        <p><label for="inputEmail">メールアドレス</label><font color="black"><%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %></font></p>
-        <p><label for="inputImage">プロフィール画像</label><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
-        <a href="#" class="btn-square-little-rich"><font color="black"><%= f.submit "変更を保存" %></font></a>
+        <div class = "mypage"><label for="inputName">名前</label><span class = "space"><font color="black"><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %></font></span></div>
+        <div class = "mypage"><label for="inputEmail">メールアドレス</label><span class = "space"><font color="black"><%= f.email_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %></font></span></div>
+        <div class = "mypage"><label for="inputImage">プロフィール画像</label><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></div>
+        <a href="#" class="btn-sf-like"><font color="black"><%= f.submit "編集" %></font></a>
       <% end %>
     </div>
   </div>
+</div>
 </div>

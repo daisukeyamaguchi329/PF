@@ -50,4 +50,21 @@
 
 .no_review {
   text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.review_body {
+ min-height: 100vh;
+ color : white;
+ background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+ font-family: sans-serif;
+}
+
+.review_center {
+  padding-top: 150px;
+}
+
+.review_center2 {
+  padding-top: 150px;
 }

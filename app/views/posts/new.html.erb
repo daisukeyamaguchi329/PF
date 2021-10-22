@@ -1,47 +1,53 @@
-<div class="container">
-  <div class="columns is-centered">
-    <div class="column is-5">
-      <p class="is-size-4 mb-3">新規投稿</p>
-
-
-      <% if @post.errors.any? %>
-      <div class="notification is-danger">
-        <p><%= @post.errors.count %>件のエラーがあります。</p>
-        <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <%= message %>
+<div class="post_page">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+        <p class="is-size-4 mb-3">新規投稿</p>
+        <% if @post.errors.any? %>
+        <div class="notification is-danger">
+          <p><%= @post.errors.count %>件のエラーがあります。</p>
+          <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+          </ul>
+          </div>
         <% end %>
-        </ul>
-        </div>
-      <% end %>
 
-      <%= form_with model: @post, url:posts_path, local:true do |f| %>
-        <p>店名 <span class ="post_require">必須</span></p>
-        <font color="black"><%= f.text_field :name, size: "60x1" %></font>
-        <p>場所: 都道府県・市区町村・番地 <span class ="post_require">必須</span></p>
-        <font color="black"><%= f.text_field :location, size: "60x1" %></font>
-        <p>写真</p>
-        <%= f.attachment_field :image %>
-        <p>営業時間 <span class ="post_require">必須</span></p>
-        <font color="black"><%= f.time_select :business_hours_start, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
-        〜
-        <font color="black"><%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
-        <p>平均予算 <span class ="post_require">必須</span></p>
-        <font color="black"><%= f.text_field :charge_system, size: "8x1" %>円</font> 〜 <font color="black"><%= f.text_field :charge_system2, size: "8x1" %>円</font>
-        <p>wifi設備 <span class ="post_require">必須</span></p>
-        <%= f.radio_button :wifi_equipment, true %>
-        <%= f.label "あり" %>
-        <%= f.radio_button :wifi_equipment, false %>
-        <%= f.label "なし" %>
-        <p>コンセント <span class ="post_require">必須</span></p>
-        <%= f.radio_button :power, true %>
-        <%= f.label "あり" %>
-        <%= f.radio_button :power, false %>
-        <%= f.label "なし" %>
-        <p>説明 <span class ="post_require">必須</span></p>
-        <font color="black"><%= f.text_area :caption, size: "80x5" %></font>
-      　<a href="#" class="btn-rich2"><font color="black"><%= f.submit '投稿' %></font></a>
-      <% end %>
+        <%= form_with model: @post, url:posts_path, local:true do |f| %>
+          <p>店名 <span class ="post_require">必須</span></p>
+          <div class = "post_space"><font color="black"><%= f.text_field :name, size: "60x1" %></font></div>
+          <p>場所: 都道府県・市区町村・番地 <span class ="post_require">必須</span></p>
+          <div class = "post_space"><font color="black"><%= f.text_field :location, size: "60x1" %></font></div>
+          <p>写真</p>
+          <div class = "post_space"><%= f.attachment_field :image %></div>
+          <p>営業時間 <span class ="post_require">必須</span></p>
+          <div class = "post_space">
+          <font color="black"><%= f.time_select :business_hours_start, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
+          〜
+          <font color="black"><%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
+          </div>
+          <p>平均予算 <span class ="post_require">必須</span></p>
+          <div class = "post_space"><font color="black"><%= f.text_field :charge_system, size: "8x1" %>円</font> 〜 <font color="black"><%= f.text_field :charge_system2, size: "8x1" %>円</font></div>
+          <p>wifi設備 <span class ="post_require">必須</span></p>
+          <div class = "post_space">
+          <%= f.radio_button :wifi_equipment, true %>
+          <%= f.label "あり" %>
+          <%= f.radio_button :wifi_equipment, false %>
+          <%= f.label "なし" %>
+          </div>
+          <p>コンセント <span class ="post_require">必須</span></p>
+          <div class = "post_space">
+          <%= f.radio_button :power, true %>
+          <%= f.label "あり" %>
+          <%= f.radio_button :power, false %>
+          <%= f.label "なし" %>
+          </div>
+          <p>説明 <span class ="post_require">必須</span></p>
+          <font color="black"><%= f.text_area :caption, size: "80x5" %></font>
+          <div class = "post_space"><a href="#" class="btn-rich2"><font color="black"><%= f.submit '投稿' %></font></a></div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

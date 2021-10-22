@@ -6,6 +6,13 @@
           <div class="card mb-6">
           <header class="card-header">
            <p class="is-size-4 mb-3">店名: <%= @post.name %><br>場所: <%= @post.location %></p>
+           <div class="star">
+            <div class='star-btn' id="favorite_<%= @post.id %>">
+              <% if @post.user_id != current_user.id %>
+               <div class = "favorite-star"><%= render "favorites/favorite", post: @post %></div>
+              <% end %>
+            </div>
+          </div>
           </header>
           <div class="card-content">
           <script type="text/javascript">
@@ -49,13 +56,11 @@
           #mapの表示
           <div id="map"></div>
 
-          <div class='star-btn' id="favorite_<%= @post.id %>">
-            <%= render "favorites/favorite", post: @post %>
-          </div>
+
 
           <div class="content review">
             <%= link_to new_post_review_path(@post),class: "button card-footer-item" do %>レビューを書く<% end %>
-            <%= link_to post_reviews_path(@post), method: :delete,class: "button card-footer-item" do %>レビューを見る<% end %>
+            <%= link_to post_reviews_path(@post),class: "button card-footer-item" do %>レビューを見る<% end %>
           </div>
           <div class="content image">
             <%= attachment_image_tag @post, :image, format:'jpg', fallback:"no_image2" %>
