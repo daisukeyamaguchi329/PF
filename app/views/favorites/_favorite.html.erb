@@ -1,10 +1,10 @@
 <% if !Favorite.exists?(user_id: current_user.id, post_id: post.id) %>
-  <font color="black">お気に入り追加</font><%= link_to post_favorites_path(post.id), method: :post, remote: true, class:"favorite-btn" do %>
+  <font color="black">お気に入りに追加</font><%= link_to post_favorites_path(post.id), method: :post, remote: true, class:"favorite-btn" do %>
     <i class="fas fa-star star-icon1"></i>
   <% end %>
   <span class="star-count1"><%= post.favorites.count %></span>
 <% else %>
-  <font color="black">お気に入り解除</font><%= link_to post_favorite_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true, class:"favorite-btn" do %>
+  <font color="black">お気に入りから削除する</font><%= link_to post_favorite_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true, class:"favorite-btn" do %>
     <i class="fas fa-star star-icon2"></i>
   <% end %>
   <span class="star-count2"><%= post.favorites.count %></span>

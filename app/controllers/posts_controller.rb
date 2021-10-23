@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   def search
+    puts params[:keyword]
     @posts = Post.search(params[:keyword]).page(params[:page]).reverse_order
   end
 

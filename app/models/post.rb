@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   validates :wifi_equipment ,inclusion:{in: [true, false]}
   validates :power ,inclusion: [true, false]
   validates :caption, presence: true
-
+ 
 
   geocoded_by :location
   after_validation :geocode, if: :location_changed?
@@ -23,8 +23,6 @@ class Post < ApplicationRecord
   def self.search(search)
     if search != ""
       Post.where('location LIKE(?)', "%#{search}%") #
-    else
-      Post.all
     end
   end
 
