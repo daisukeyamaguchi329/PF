@@ -3,8 +3,8 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5">
-        
-        <p class="is-size-4 mb-3">レビューを書く</p>
+
+        <p class="is-size-4 mb-3">レビュー</p>
         <% if @review.errors.any? %>
           <div class="notification is-danger">
             <p><%= @review.errors.count %>件のエラーがあります。</p>
@@ -31,10 +31,10 @@
           <%= f.hidden_field :rate, id: "rating-value" %>
           <%= f.text_area :comment, class: "textarea" %>
           <%= f.submit "保存", class: "button mt-3" %>
-          <%= link_to "レビューを見る", post_reviews_path(@post), class: "button light ml-3 mt-3" %>
+          <%= link_to "レビューを閲覧", post_reviews_path(@post), class: "button light ml-3 mt-3" %>
           <% end %>
         </div>
-        
+
         <%= javascript_include_tag 'reviews.js' %>
         <% if @review.errors.any? %>
           <script>
@@ -42,14 +42,14 @@
             function(){
             for(let i=0; i< <%=@review.rate %>; i++){
             console.log(stars.length)
-            
-            
+
+
             for(let j=0; j< <%=@review.rate %>; j++){
             console.log(<%=@review.rate %>)
             stars[j].classList.remove("fa-star");
             stars[j].classList.add("fa-star-o");
             }
-            
+
             for(let j=0; j<=i; j++){
             console.log(<%=@review.rate %>)
             stars[j].classList.remove("fa-star-o");
@@ -65,7 +65,7 @@
             }
           </script>
         <% end %>
-        
+
         </div>
       </div>
     </div>

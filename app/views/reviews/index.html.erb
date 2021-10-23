@@ -21,7 +21,7 @@
   
                 <div class="card-footer">
                   <%= link_to post_path(@post.id),class: "button card-footer-item" do %>詳細に戻る<% end %>
-                  <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを書く<% end %>
+                  <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを投稿<% end %>
                 </div>
               </div>
   
@@ -41,7 +41,12 @@
                         <td width="25%"><%= review.user.name %></td>
                         <td width="15%"><%= review.rate %>点</td>
                         <td width="50%"><%= simple_format(review.comment) %></td>
-                        <td width="10%"><%= link_to "reviews/#{review.id}", method: :delete, class: "button card-item" do %>削除<% end %></td>
+                        <td width="10%">
+                          <% if review.user_id == current_user.id %>
+                          <%= link_to "reviews/#{review.id}", method: :delete, class: "button card-item" do %>削除<% end %>
+                          <% end %>
+                        </td>
+                         
                       </tr>
                     <% end %>
   

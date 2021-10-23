@@ -15,7 +15,7 @@
           <div class="card mb-6">
             <header class="card-header">
 
-              <p class="card-header-name">店名: <%= post.name %>  <br>場所: <%= post.location %>
+              <p class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %><br>投稿者: <%= post.user.name %></p>
 
 
              <div class="star">
@@ -46,10 +46,10 @@
             </div>
             <footer class="card-footer">
               <%= link_to post_path(post.id),class: "button card-footer-item" do %>
-                詳細を見る
+                詳細を閲覧
               <% end %>
               <%= link_to post_reviews_path(post),class: "button card-footer-item" do %>
-                レビューを見る
+                レビューを閲覧
               <% end %>
             </footer>
           </div>

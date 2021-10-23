@@ -5,8 +5,8 @@
         <div class="column is-7">
           <div class="card mb-6">
           <header class="card-header">
-           <p class="is-size-4 mb-3">店名: <%= @post.name %><br>場所: <%= @post.location %></p>
-           <div class="star">
+           <p class="is-size-4 mb-3">店名: <%= @post.name %><br>場所: <%= @post.location %><br>投稿者: <%= @post.user.name %></p>
+           <div class="star2">
             <div class='star-btn' id="favorite_<%= @post.id %>">
               <% if @post.user_id != current_user.id %>
                <div class = "favorite-star"><%= render "favorites/favorite", post: @post %></div>
@@ -59,8 +59,10 @@
 
 
           <div class="content review">
-            <%= link_to new_post_review_path(@post),class: "button card-footer-item" do %>レビューを書く<% end %>
-            <%= link_to post_reviews_path(@post),class: "button card-footer-item" do %>レビューを見る<% end %>
+            <% if @post.user_id != current_user.id %>
+            <%= link_to new_post_review_path(@post),class: "button card-footer-item" do %>レビューを投稿<% end %>
+            <% end %>
+            <%= link_to post_reviews_path(@post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
           </div>
           <div class="content image">
             <%= attachment_image_tag @post, :image, format:'jpg', fallback:"no_image2" %>
@@ -78,8 +80,10 @@
           </div>
           </div>
           <footer class="card-footer">
+            <% if @post.user_id == current_user.id %>
             <%= link_to edit_post_path(@post.id),class: "button card-footer-item" do %>編集<% end %>
             <%= link_to post_path(@post), method: :delete,class: "button card-footer-item" do %>削除<% end %>
+            <% end %>
           </footer>
           </div>
         </div>

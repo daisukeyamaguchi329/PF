@@ -3,22 +3,27 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5">
-
+        <% if @posts.present? %>
         <div class="search">
         <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
           <font color="black"><input type="search" name="q" placeholder="現在地から探す"></font>
           <a href="#" class="btn-square-toy"><%= form.submit "検索", :name => nil %></a>
         <% end %>
         </div>
+        
+
 
         <% @posts.each do |post| %>
           <div class="card mb-6">
           <header class="card-header">
-            <p class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %></p>
+            <p class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %><br>投稿者: <%= post.user.name %></p>
               <div class="star">
                 <div class='star-btn' id="favorite_<%= post.id %>">
+     
                 <% if post.user_id != current_user.id %>
-                 <div class = "favorite-star"><%= render "favorites/favorite", post: post %></div>
+                 <div class = "favorite-star">
+                   お気に入りに追加<%= render "favorites/favorite", post: post %>
+                 </div>
                 <% end %>
                 </div>
               </div>
@@ -40,10 +45,13 @@
           </div>
 
           <footer class="card-footer">
-            <%= link_to post_path(post.id),class: "button card-footer-item" do %>詳細を見る<% end %>
-            <%= link_to post_reviews_path(post),class: "button card-footer-item" do %>レビューを見る<% end %>
+            <%= link_to post_path(post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
+            <%= link_to post_reviews_path(post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
           </footer>
           </div>
+        <% end %>
+        <% else %>
+          <div class = "no_post"><p class="is-size-1">投稿がありません。</p></div>
         <% end %>
         <%= paginate @posts %>
         </div>
