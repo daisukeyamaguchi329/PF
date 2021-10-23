@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     render :new
   end
-  
+
   # 実際に送信するアクションになります。
   # ここで初めて入力内容を保存します。
   # セキュリティーのためにも一定時間で入力内容の削除を行ってもいいかもしれません。
@@ -38,6 +38,6 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :subject, :message, :created_at, :updated_at)
+    params.require(:contact).permit(:name, :email, :subject, :message)
   end
 end

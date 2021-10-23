@@ -12,6 +12,10 @@
             </header>
             <div class="card-content">
               <div class="content">
+                
+                <%= @contact.subject %>
+              </div>
+              <div class="content">
                 メッセージ
                 <div class = "break">
                 <%= @contact.message %>
@@ -19,7 +23,7 @@
               </div>
             </div>
             <footer class="card-footer">
-  
+
             <div class = "button card-footer-item">
             <%= form_for(@contact) do |f| %>
               <%= f.hidden_field :name %>
@@ -29,7 +33,7 @@
             <% end %>
             </div>
             <div class = "button card-footer-item">
-            <%= form_for @contact, url: back_path do |f| %>
+            <%= form_for (@contact), url: back_path do |f| %>
               <%= f.hidden_field :name %>
               <%= f.hidden_field :email %>
               <%= f.hidden_field :message %>
