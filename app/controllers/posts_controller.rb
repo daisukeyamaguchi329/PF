@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def search
     puts params[:keyword]
     @posts = Post.search(params[:keyword]).page(params[:page]).reverse_order
@@ -7,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.page(params[:page]).reverse_order
-    favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:post_id)  # ログイン中のユーザーのお気に入りのpost_idカラムを取得
+    favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:post_id)
     @favorite_list = Post.find(favorites)
   end
 
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id  = current_user.id
+    @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path
     else
@@ -48,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :location, :image, :business_hours_start, :business_hours_end, :charge_system,:charge_system2, :wifi_equipment, :power, :caption, :longitude, :latitude)
+    params.require(:post).permit(:name, :location, :image, :business_hours_start, :business_hours_end, :charge_system,
+                                 :charge_system2, :wifi_equipment, :power, :caption, :longitude, :latitude)
   end
-
 end

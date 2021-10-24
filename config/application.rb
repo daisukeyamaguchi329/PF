@@ -12,6 +12,8 @@ module Pf
     config.load_defaults 5.2
     config.i18n.default_locale = :ja
     config.i18n.default_locale = :ja
+    # タイムゾーンを日本時間に設定
+    config.time_zone = 'Asia/Tokyo'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -19,4 +21,4 @@ module Pf
   end
 end
 
- I18n.default_locale = :ja
+I18n.default_locale = :ja

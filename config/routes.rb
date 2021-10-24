@@ -1,26 +1,24 @@
 Rails.application.routes.draw do
-
   devise_for :users
   root to: 'homes#top'
 
-
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: %i[show edit update]
 
   get 'users/quit' => 'users#quit'
   get 'users/out' => 'users#out'
-  resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+  resources :posts, only: %i[index show new create edit update destroy] do
     collection do
       get 'search'
     end
 
-    resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :favorites, only: [:show, :create, :destroy]
+    resources :reviews, only: %i[index new create edit update destroy]
+    resources :favorites, only: %i[show create destroy]
   end
 
   get 'favorites', to: 'favorites#show'
-  #resources :favorites, only: [:show]
+  # resources :favorites, only: [:show]
 
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: %i[new create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'

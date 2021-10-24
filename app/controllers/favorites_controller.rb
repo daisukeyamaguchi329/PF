@@ -3,21 +3,12 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    # @user = current_user
-    # @posts = @user.posts
-
-    # favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
-    # @favorite_list = Post.find(favorites)
-
     @favorite_list = current_user.favorites
   end
 
-
   def create
-      @post = Post.find(params[:post_id])
-    if @post.user_id != current_user.id   # 投稿者本人以外に限定
-      @favorite = Favorite.create!(user_id: current_user.id, post_id: @post.id)
-    end
+    @post = Post.find(params[:post_id])
+    @favorite = Favorite.create!(user_id: current_user.id, post_id: @post.id) if @post.user_id != current_user.id
   end
 
   def destroy
@@ -27,6 +18,7 @@ class FavoritesController < ApplicationController
   end
 
   private
+
   def set_post
     @post = Post.find(params[:post_id])
   end

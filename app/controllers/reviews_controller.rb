@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-   before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!, only: [:index]
   def index
     @post = Post.find(params[:post_id])
     @reviews = @post.reviews.order(created_at: :desc)
@@ -14,10 +14,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     if @review.save
-      redirect_to  post_reviews_path
+      redirect_to post_reviews_path
     else
       @post = Post.find(params[:post_id])
-      render "reviews/new"
+      render 'reviews/new'
     end
   end
 
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if  Review.exists?(id: params[:id])
+    if Review.exists?(id: params[:id])
       review = Review.find(params[:id])
       review.destroy
     end
@@ -36,6 +36,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:post_id, :title, :rate, :comment )
+    params.require(:review).permit(:post_id, :title, :rate, :comment)
   end
 end
