@@ -9,7 +9,19 @@
                 <div>店名: <%= @post.name %></div>
                 <div>場所: <%= @post.location %></div>
                 <div>投稿者: <%= @post.user.name %></div>
-                <div class='star-btn' id="favorite_<%= @post.id %>">
+               
+                <div class = "show_star_rating">
+                 <div class="content average-score">
+                  <div class="star-rating mb-2">
+                    <div class="star-rating-front" style="width: <%= @post.review_rate_percentage %>%">★★★★★</div>
+                    <div class="star-rating-back">★★★★★</div>
+                  </div>
+                  <div class="average-score-display ml-3 pt-2">
+                   <%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）
+                  </div>
+                 </div>
+              </div>
+               <div class='star-btn' id="favorite_<%= @post.id %>">
                   <% if @post.user_id != current_user.id %>
                   <div class = "favorite-star">
                     <%= render "favorites/favorite", post: @post %>
@@ -17,6 +29,7 @@
                   <% end %>
                 </div>
               </div>
+              
             </div>
 
             <div class="card-content">
@@ -37,15 +50,15 @@
               電源: <%= @post.power ? 'あり' : 'なし' %>
             </div>
             <div class="content caption">店の雰囲気<br><%= @post.caption %></div>
+            <div class="content create">
+              投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %>
+              更新日時: <%= @post.updated_at.strftime('%Y/%m/%d') %>
+            </div>
             <div class="content review">
               <% if @post.user_id != current_user.id %>
               <%= link_to new_post_review_path(@post),class: "button card-footer-item" do %>レビューを投稿<% end %>
               <% end %>
               <%= link_to post_reviews_path(@post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
-            </div>
-            <div class="content create">
-              投稿日時: <%= @post.created_at.strftime('%Y/%m/%d') %>
-              更新日時: <%= @post.updated_at.strftime('%Y/%m/%d') %>
             </div>
           </div>
             <div class="card-footer">

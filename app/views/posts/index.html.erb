@@ -11,6 +11,9 @@
         <% end %>
         </div>
 
+        <%= link_to "お気に入り一覧", post_favorites_path(@post.id), class: 'btn btn-default' %>
+
+
         <% @posts.each do |post| %>
           <div class="card mb-6">
             <div class="card-header">
@@ -26,7 +29,10 @@
               </div>
             </div>
             <div class="card-content">
-            <div class="content">
+              <div class = "post_row">
+              <div class="content image_index">
+                <%= attachment_image_tag post, :image, format:'jpg', fallback:"no_image2" %>
+              </div>
               <div class="content average-score">
                 <div class="star-rating mb-2">
                   <div class="star-rating-front" style="width: <%= post.review_rate_percentage %>%">★★★★★</div>
@@ -36,7 +42,7 @@
                   <%= post.avg_rate %>点（<%= post.reviews.count %>件のレビュー）
                 </div>
               </div>
-            </div>
+              </div>
           </div>
             <div class="card-footer">
               <%= link_to post_path(post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>

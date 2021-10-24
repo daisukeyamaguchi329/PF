@@ -33,7 +33,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -67,7 +67,10 @@ Rails.application.configure do
       domain: 'smtp.gmail.com',
       user_name: ENV['SMTP_USERNAME'],
       password: ENV['SMTP_PASSWORD'],
-      authcentication: 'plain',
+      authcentication: 'login',
       enable_starttls_auto: true
   }
+  config.action_mailer.default_url_options = { host: '94a43a0361234c77b81f6d03ec93a6d3.vfs.cloud9.ap-northeast-1.amazonaws.com' }
+
+
 end

@@ -3,7 +3,12 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @post = current_user.favorite.includes(:user).order(created_at: :desc)
+    @post = current_user.favorite_posts.includes(:user).order(created_at: :desc)
+    @user = User.find(params[:id])
+    @items = @user.items
+
+    favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)
+    @favorite_list = Item.find(bookmarks)
   end
 
 

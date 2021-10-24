@@ -25,6 +25,11 @@
  height: 100%;
 }
 
+.image_index {
+ display: flex;
+ width: 140px;
+ height: 100px;
+}
 
 
 .detail {
@@ -120,4 +125,18 @@
 
 .field_with_errors {
     display: contents;
+}
+
+.post_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.average-score {
+  padding-top: 30px;
+  padding-left: 60px;
+}
+
+.show_star_rating {
+  transform: scale(1.2, 1);
 }
