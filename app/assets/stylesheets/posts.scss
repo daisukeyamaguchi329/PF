@@ -140,3 +140,13 @@
 .show_star_rating {
   transform: scale(1.2, 1);
 }
+
+.btn_row {
+  display : flex;
+  flex-direction : row;
+}
+
+.btn_location {
+  padding-top: 2px;
+  padding-left: 30px;
+}

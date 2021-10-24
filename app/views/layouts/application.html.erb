@@ -16,6 +16,9 @@
         <nav class="navbar navbar-expend-lg navbar-light" >
           <div class="container">
             <% if user_signed_in? %>
+
+               <p class=“navbar-item”>ようこそ<%= current_user.name %>さん</p>
+
              <li><%= link_to '投稿一覧', posts_path %></li>
              <li><%= link_to '投稿フォーム', new_post_path %></li>
              <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
@@ -24,24 +27,11 @@
              <li><%= link_to "新規登録", new_user_registration_path %></li>
              <li><%= link_to "ログイン", new_user_session_path %></li>
             <% end %>
-            <% if flash[:notice] %>
-             <div class=“notification is-info”>
-              <p class=“notice”><%= notice %></p>
-             </div>
-            <% end %>
-            <% if flash[:alert] %>
-             <div class=“notification is-danger”>
-               <p class=“alert”><%= alert %></p>
-             </div>
-            <% end %>
-            <p class=“navbar-item”>
-            <% if user_signed_in? %>
-               <p class=“navbar-item”>ようこそ<%= current_user.name %>さん</p>
-            <% end %>
           </div>
         </nav>
      </header>
     <main>
+      <%= render 'layouts/notifications' %>
       <%= yield %>
     </main>
   </body>

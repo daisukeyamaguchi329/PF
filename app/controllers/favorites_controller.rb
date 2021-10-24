@@ -1,14 +1,15 @@
 class FavoritesController < ApplicationController
-  before_action :set_post
+  before_action :set_post, except: :show
   before_action :authenticate_user!
 
-  def index
-    @post = current_user.favorite_posts.includes(:user).order(created_at: :desc)
-    @user = User.find(params[:id])
-    @items = @user.items
+  def show
+    # @user = current_user
+    # @posts = @user.posts
 
-    favorites = Favorite.where(user_id: current_user.id).pluck(:item_id)
-    @favorite_list = Item.find(bookmarks)
+    # favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    # @favorite_list = Post.find(favorites)
+
+    @favorite_list = current_user.favorites
   end
 
 

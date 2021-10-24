@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show, :edit, :update]
-  
+
   get 'users/quit' => 'users#quit'
   get 'users/out' => 'users#out'
   resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
@@ -14,8 +14,11 @@ Rails.application.routes.draw do
     end
 
     resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
-    resources :favorites, only: [:index, :create, :destroy]
+    resources :favorites, only: [:show, :create, :destroy]
   end
+
+  get 'favorites', to: 'favorites#show'
+  #resources :favorites, only: [:show]
 
   resources :contacts, only: [:new, :create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'

@@ -4,15 +4,17 @@
       <div class="columns is-centered">
         <div class="column is-6">
         <% if @posts.present? %>
-        <div class="search">
-        <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
-          <font color="black"><input type="search" name="keyword" placeholder="現在地から探す"></font>
-          <a href="#" class="btn-square-toy"><%= form.submit "検索", :name => nil %></a>
-        <% end %>
+        <div class = "btn_row">
+          <div class="search">
+          <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
+            <font color="black"><input type="search" name="keyword" placeholder="現在地から探す"></font>
+            <a href="#" class="btn-square-toy"><%= form.submit "検索", :name => nil %></a>
+          <% end %>
+          </div>
+          <div class = "btn_location">
+            <%= link_to "お気に入り一覧", favorites_path, class: 'btn btn-default' %>
+          </div>
         </div>
-
-        <%= link_to "お気に入り一覧", post_favorites_path(@post.id), class: 'btn btn-default' %>
-
 
         <% @posts.each do |post| %>
           <div class="card mb-6">
