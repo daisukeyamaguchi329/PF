@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get 'users/quit' => 'users#quit'
   get 'users/out' => 'users#out'
-  resources :posts, only: %i[index show new create edit update destroy] do
+  resources :posts, only: %i[find index show new create edit update destroy] do
     collection do
       get 'search'
     end

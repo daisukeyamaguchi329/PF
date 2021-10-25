@@ -73,6 +73,7 @@ gem 'rails-i18n'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'geocoder'
+gem 'geokit-rails'
 gem 'rails-i18n'
 
 group :development, :test do
