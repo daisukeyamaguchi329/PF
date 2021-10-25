@@ -1,9 +1,9 @@
 class FavoritesController < ApplicationController
-  before_action :set_post, except: :show
+  before_action :set_post, except: :index
   before_action :authenticate_user!
 
-  def show
-    @favorite_list = current_user.favorites
+  def index
+    @favorite_list = current_user.favorites.page(params[:page]).reverse_order
   end
 
   def create

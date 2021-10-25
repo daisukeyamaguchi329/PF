@@ -5,7 +5,9 @@ class ContactsController < ApplicationController
 
   def confirm
     @contact = Contact.new(contact_params)
-    render :new if @contact.invalid?
+    if @contact.invalid?
+      render :new
+    end
   end
 
   # 入力内容に誤りがあった場合、

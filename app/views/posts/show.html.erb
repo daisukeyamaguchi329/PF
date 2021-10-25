@@ -9,7 +9,7 @@
                 <div>店名: <%= @post.name %></div>
                 <div>場所: <%= @post.location %></div>
                 <div>投稿者: <%= @post.user.name %></div>
-               
+
                 <div class = "show_star_rating">
                  <div class="content average-score">
                   <div class="star-rating mb-2">
@@ -29,7 +29,7 @@
                   <% end %>
                 </div>
               </div>
-              
+
             </div>
 
             <div class="card-content">
@@ -76,7 +76,7 @@
 
 
 
- <script type="text/javascript">
+<script type="text/javascript">
 function initMap() {
   var test ={lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
   var map = new google.maps.Map(document.getElementById('map'), {

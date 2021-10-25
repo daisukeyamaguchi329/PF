@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-6">
-        <% if @posts.present? %>
+        <% if @favorite_list.present? %>
         <div class = "btn_row">
           <div class="search">
           <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
@@ -16,16 +16,16 @@
           </div>
         </div>
 
-        <% @posts.each do |post| %>
+        <% @favorite_list.each do |favorite| %>
           <div class="card mb-6">
             <div class="card-header">
-              <div>店名: <%= post.name %></div>
-              <div>場所: <%= post.location %></div>
-              <div>投稿者: <%= post.user.name %></div>
-              <div class='star-btn' id="favorite_<%= post.id %>">
-                <% if post.user_id != current_user.id %>
+              <div>店名: <%= favorite.post.name %></div>
+              <div>場所: <%= favorite.post.location %></div>
+              <div>投稿者: <%= favorite.post.user.name %></div>
+              <div class='star-btn' id="favorite_<%= favorite.post.id %>">
+                <% if favorite.post.user_id != current_user.id %>
                 <div class = "favorite-star">
-                  <%= render "favorites/favorite", post: post %>
+                  <%= render "favorites/favorite", post: favorite.post %>
                 </div>
                 <% end %>
               </div>
@@ -33,29 +33,29 @@
             <div class="card-content">
               <div class = "post_row">
               <div class="content image_index">
-                <%= attachment_image_tag post, :image, format:'jpg', fallback:"no_image2" %>
+                <%= attachment_image_tag favorite.post, :image, format:'jpg', fallback:"no_image2" %>
               </div>
               <div class="content average-score">
                 <div class="star-rating mb-2">
-                  <div class="star-rating-front" style="width: <%= post.review_rate_percentage %>%">★★★★★</div>
+                  <div class="star-rating-front" style="width: <%= favorite.post.review_rate_percentage %>%">★★★★★</div>
                   <div class="star-rating-back">★★★★★</div>
                 </div>
                 <div class="average-score-display ml-3 pt-2">
-                  <%= post.avg_rate %>点（<%= post.reviews.count %>件のレビュー）
+                  <%= favorite.post.avg_rate %>点（<%= favorite.post.reviews.count %>件のレビュー）
                 </div>
               </div>
               </div>
           </div>
             <div class="card-footer">
-              <%= link_to post_path(post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
-              <%= link_to post_reviews_path(post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
+              <%= link_to post_path(favorite.post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
+              <%= link_to post_reviews_path(favorite.post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
             </div>
           </div>
         <% end %>
         <% else %>
-          <div class = "no_post"><p class="is-size-1">投稿がありません。</p></div>
+          <div class = "no_post"><p class="is-size-1">お気に入り投稿がありません。</p></div>
         <% end %>
-        <%= paginate @posts %>
+        <%= paginate @favorite_list %>
         </div>
       </div>
     </div>

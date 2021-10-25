@@ -51,10 +51,6 @@ main {
   padding-bottom: 40px;
 }
 
-.btn-sf-like {
-  width: 100%;
-}
-
 .btn-sf-like:hover {
   text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83),
                6px 0px 15px rgba(255, 255, 240, 0.83);
@@ -91,4 +87,8 @@ main {
   background-color: red;
   color: #white;
   text-align: center;
+}
+
+.edit_top_spase {
+  padding: 20px 0px;
 }

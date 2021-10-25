@@ -13,11 +13,11 @@
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %>文字以上に設定してください)</em><br />
               <% end %>
-              <%= f.password_field :password, autofocus: true, autocomplete: "new-password",  class: "form-control" %>
+              <%= f.password_field :password, :size=>"20", autofocus: true, autocomplete: "new-password",  class: "form-control" %>
             </div>
             <div class="form-group">
               <%= f.label :password_confirmation, "新しいパスワードの確認" %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "form-control" %>
+              <%= f.password_field :password_confirmation, :size=>"20", autocomplete: "new-password",  class: "form-control" %>
             </div>
             <div class="form-group">
               <font color="black"><%= f.submit "パスワード変更", class:"btn btn-outline-primary" %></font>

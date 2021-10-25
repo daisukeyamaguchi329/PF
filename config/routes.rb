@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :favorites, only: %i[show create destroy]
   end
 
-  get 'favorites', to: 'favorites#show'
+  get 'favorites', to: 'favorites#index'
   # resources :favorites, only: [:show]
 
   resources :contacts, only: %i[new create]

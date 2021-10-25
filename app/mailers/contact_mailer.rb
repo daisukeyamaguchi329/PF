@@ -4,7 +4,7 @@ class ContactMailer < ApplicationMailer
 
     mail(
       from: contact.email,
-      to: ENV['TOMAIL'],
+      to:   ENV['TOMAIL'],
       subject: '【お問い合わせ】'
     )
   end
