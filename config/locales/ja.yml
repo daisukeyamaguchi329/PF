@@ -5,7 +5,12 @@ ja:
   activerecord:
     models:
       review: レビュー
+  activerecord:
+    models:
+      contact: お問合わせ
     attributes:
+      contact:
+        message: メッセージ
       review:
         rate: 評価
         comment: コメント

@@ -8,17 +8,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/232bbef7fb.js" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
   <body>
      <header class="header">
-        <nav class="navbar navbar-expend-lg navbar-light" >
+        <nav id="aaa" class="navbar navbar-expend-lg navbar-light" >
           <div class="container">
             <% if user_signed_in? %>
-
-               <p class=“navbar-item”>ようこそ<%= current_user.name %>さん</p>
-
+             <p class=“navbar-item”>ようこそ<%= current_user.name %>さん</p>
              <li><%= link_to '投稿一覧', posts_path %></li>
              <li><%= link_to '投稿フォーム', new_post_path %></li>
              <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
@@ -36,12 +33,14 @@
     </main>
   </body>
   <footer class="footer text-black align-items-center d-flex justify-content-center">
+    <div id="ss">
   　<span>© All rights reserved by KaitekiWork</span>
     <div class="justify-content-center align-items-center social-items">
       <i class="fab fa-facebook-square fa-2x text-black"></i>
       <i class="fab fa-twitter-square fa-2x text-black"></i>
       <i class="fab fa-instagram fa-2x text-black"></i>
       <i class="fas fa-envelope fa-2x text-black"></i>
+    </div>
     </div>
   </footer>
 </html>

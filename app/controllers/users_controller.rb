@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page]).reverse_order
+    @posts = @user.posts.includes(:reviews).page(params[:page]).reverse_order
     favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:post_id)
     @favorite_list = Post.find(favorites)
   end

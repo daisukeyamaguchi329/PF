@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def search
     puts params[:keyword]
-    @posts = Post.search(params[:keyword]).page(params[:page]).reverse_order
+    @posts = Post.includes(:user, :reviews).search(params[:keyword]).page(params[:page]).reverse_order
   end
 
   def index
-    @posts = Post.all.page(params[:page]).reverse_order
+    @posts = Post.includes(:user).includes(:reviews).eager_load(:favorites).page(params[:page]).reverse_order
     favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:post_id)
     @favorite_list = Post.find(favorites)
   end

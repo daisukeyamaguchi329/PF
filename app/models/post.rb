@@ -18,11 +18,11 @@ class Post < ApplicationRecord
   attachment :image
 
   def self.search(search)
-   if search != ""
-    # where(['カラム名 LIKE(?) OR カラム名 LIKE(?)', "%#{search}%", "%#{search}%"])のように記述。
-    # 検索対象カラムの数だけ"%#{search}%"を記述。
-    Post.where(['name LIKE(?) OR location LIKE(?)',"%#{search}%","%#{search}%"])
-   end
+    if search != ''
+      # where(['カラム名 LIKE(?) OR カラム名 LIKE(?)', "%#{search}%", "%#{search}%"])のように記述。
+      # 検索対象カラムの数だけ"%#{search}%"を記述。
+      Post.where(['name LIKE(?) OR location LIKE(?)', "%#{search}%", "%#{search}%"])
+    end
   end
 
   def avg_rate

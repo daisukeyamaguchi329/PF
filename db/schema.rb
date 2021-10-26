@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_24_191546) do
+ActiveRecord::Schema.define(version: 2021_10_26_100756) do
 
   create_table "contacts", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.text "message"
+    t.string "name", null: false
+    t.string "email", null: false
+    t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "subject"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -29,27 +28,27 @@ ActiveRecord::Schema.define(version: 2021_10_24_191546) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.string "charge_system"
-    t.boolean "wifi_equipment"
-    t.boolean "power"
-    t.text "caption"
+    t.string "name", null: false
+    t.string "location", null: false
+    t.string "charge_system", null: false
+    t.boolean "wifi_equipment", null: false
+    t.boolean "power", null: false
+    t.text "caption", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.text "image_id"
-    t.string "charge_system2"
-    t.time "business_hours_end"
-    t.time "business_hours_start"
+    t.string "charge_system2", null: false
+    t.time "business_hours_end", null: false
+    t.time "business_hours_start", null: false
     t.float "longitude"
     t.float "latitude"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
-    t.string "rate"
-    t.text "comment"
+    t.string "rate", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -62,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_191546) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "profile_image_id"

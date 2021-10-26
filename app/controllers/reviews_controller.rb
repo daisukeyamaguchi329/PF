@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   def index
     @post = Post.find(params[:post_id])
-    @reviews = @post.reviews.order(created_at: :desc)
+    @reviews = @post.reviews.includes(:user).order(created_at: :desc)
   end
 
   def new

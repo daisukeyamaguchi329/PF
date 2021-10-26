@@ -13,7 +13,7 @@
             <% end %>
             </ul>
             </div>
-          <% end %>
+        <% end %>
         <div class="rating-box mt-3">
           <%= form_with model: @review, url: post_reviews_path(@post), local: true do |f| %>
           <div class="main-rating">
@@ -33,38 +33,7 @@
           <%= link_to "レビューを閲覧", post_reviews_path(@post), class: "button light ml-3 mt-3" %>
           <% end %>
         </div>
-
-        <%= javascript_include_tag 'reviews.js' %>
-        <% if @review.errors.any? %>
-          <script>
-            const stars = document.querySelector(".ratings").children;
-            function(){
-            for(let i=0; i< <%=@review.rate %>; i++){
-            console.log(stars.length)
-
-
-            for(let j=0; j< <%=@review.rate %>; j++){
-            console.log(<%=@review.rate %>)
-            stars[j].classList.remove("fa-star");
-            stars[j].classList.add("fa-star-o");
-            }
-
-            for(let j=0; j<=i; j++){
-            console.log(<%=@review.rate %>)
-            stars[j].classList.remove("fa-star-o");
-            stars[j].classList.add("fa-star");
-            }
-            })
-            ratingvalue = document.getElementById('rating-value');
-            const ratingValueDisplay = document.getElementById("rating-value-display");
-            ratingvalue = <%= @review.rate %> + 1;
-            ratingValueDisplay.innerHTML = "<%=@review.rate %>";
-            document.getElementById("rating-value-display").textContent = "x";
-            document.getElementById('rating-value-display').style.backgroundColor = 'skyblue';
-            }
-          </script>
-        <% end %>
-
+       <%= render "reviews/review" %>
         </div>
       </div>
     </div>
