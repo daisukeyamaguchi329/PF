@@ -18,21 +18,52 @@
 
 @import "bulma";
 
-#aaa {
-  background-color: red;
+#header_visual {
+  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
 }
 
-#ss {
-  background-color: red;
+
+.fa-asymmetrik{
+  margin: 10px;
+  color: #ff9a44;
+}
+
+#header_visual2 {
+
+　vertical-align: middle;
+}
+
+
+#foooter_visual {
+  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+  text-align: center;
+}
+
+.fa-facebook-square {
+  margin: 0px 15px;
+}
+
+.fa-twitter-square {
+  margin: 0px 15px;
+}
+
+.fa-instagram {
+  margin: 0px 15px;
+}
+
+.fa-envelope {
+  margin: 0px 15px;
 }
 
 .navbar {
   margin-bottom: 0px!important;
   border-radius: 0px!important;
+  border: 0px solid!important;
 }
 
+
 .mt-6 {
-    margin-top: 0rem !important;
+  margin-top: 0rem !important;
 }
 
 .footer {

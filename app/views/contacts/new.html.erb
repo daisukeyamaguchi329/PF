@@ -13,6 +13,7 @@
             </ul>
             </div>
           <% end %>
+          <div class="contact_space">
           <%= form_with model: @contact, url: confirm_path, local: true do |f| %>
           <div class="form-group">
             <%= f.label :message, 'お問合せ内容' %> <span class ="contact_require">必須</span>
@@ -24,6 +25,7 @@
             <font color="black"><%= f.submit '入力内容確認' %></font>
           </div>
           <% end %>
+          </div>
         </div>
      </div>
    </div>

@@ -14,6 +14,8 @@
             </ul>
             </div>
         <% end %>
+        
+        <div class="review_space">
         <div class="rating-box mt-3">
           <%= form_with model: @review, url: post_reviews_path(@post), local: true do |f| %>
           <div class="main-rating">
@@ -33,7 +35,8 @@
           <%= link_to "レビューを閲覧", post_reviews_path(@post), class: "button light ml-3 mt-3" %>
           <% end %>
         </div>
-       <%= render "reviews/review" %>
+        <%= render "reviews/review" %>
+        </div> 
         </div>
       </div>
     </div>
