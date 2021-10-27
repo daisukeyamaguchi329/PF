@@ -35,6 +35,7 @@
               <div class="content image_index">
                 <%= attachment_image_tag favorite.post, :image, format:'jpg', fallback:"no_image2" %>
               </div>
+              <div class="index_star_rating">
               <div class="content average-score">
                 <div class="star-rating mb-2">
                   <div class="star-rating-front" style="width: <%= favorite.post.review_rate_percentage %>%">★★★★★</div>
@@ -43,6 +44,7 @@
                 <div class="average-score-display ml-3 pt-2">
                   <%= favorite.post.avg_rate %>点（<%= favorite.post.reviews.count %>件のレビュー）
                 </div>
+              </div>
               </div>
               </div>
           </div>

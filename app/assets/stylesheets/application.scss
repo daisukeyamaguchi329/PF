@@ -19,17 +19,15 @@
 @import "bulma";
 
 #header_visual {
-  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+  background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+ background-blend-mode: screen;
 }
 
 
 .fa-asymmetrik{
-  color: #ff9a44;
+  color: #80ffdb;
 }
 
-a {
-  color: redimportant;
-}
 
 #header_visual2 {
   padding: 20px 50px;
@@ -37,10 +35,12 @@ a {
 
 li {
   display:inline-block;
-  color: #ff9a44;
+  color: red;
 }
+
 #foooter_visual {
-  background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+  background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+  background-blend-mode: screen;
   text-align: center;
 }
 
@@ -126,7 +126,7 @@ main {
 }
 
 .body_top {
-  padding-top: 110px;
+  padding-top: 50px;
 }
 
 .background_image2 {
