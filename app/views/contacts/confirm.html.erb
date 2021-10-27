@@ -5,16 +5,16 @@
           <div class="column is-6">
             <div class="card mb-6">
             <div class="card-header">
-                <div>お名前: <%= @contact.name %></div>
-                <div>メールアドレス: <%= @contact.email %></div>
-                <div>
-                  <font color="red">※お名前とメールアドレスの変更をする場合</font>
-                  <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: 'btn btn-default' %>
-                </div>
-             </div>
-             <div class="card-content">
-                <div>お問合せ内容</div>
-                <div class = "contact_message"><%= @contact.message %></div>
+              <div>お名前: <%= @contact.name %></div>
+              <div>メールアドレス: <%= @contact.email %></div>
+              <div>
+                <font color="red">※お名前とメールアドレスの変更をする場合</font>
+                <%= link_to "プロフィール編集", edit_user_path(current_user.id), class: 'btn btn-default' %>
+              </div>
+            </div>
+            <div class="card-content">
+              <div>お問合せ内容</div>
+              <div class = "contact_message"><%= @contact.message %></div>
             </div>
             <div class = "card-footer">
                <div class = " button card-footer-item">
@@ -33,7 +33,7 @@
                   <%= f.submit '送信' %>
                 <% end %>
                </div>
-          </div>
+            </div>
          </div>
         </div>
       </div>

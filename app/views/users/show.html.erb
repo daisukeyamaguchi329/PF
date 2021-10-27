@@ -2,7 +2,6 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
-        
         <div class="card mb-6">
         <header class="card-header">
          <p>名前: <%= @user.name %><br>メールアドレス: <%= @user.email %></p>
@@ -19,7 +18,6 @@
           <% end %>
           <%= link_to new_contact_path,class: "button card-footer-item" do %>お問い合わせフォーム<% end %>
         </div>
-        
         <% @posts.each do |post| %>
           <div class="card mb-6">
           <header class="card-header">
@@ -53,7 +51,6 @@
           </div>
         <% end %>
         <%= paginate @posts %>
-      
       </div>
     </div>
   </div>

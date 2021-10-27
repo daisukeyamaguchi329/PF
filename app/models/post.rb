@@ -19,9 +19,9 @@ class Post < ApplicationRecord
 
   def self.search(search)
     if search != ''
-      # where(['カラム名 LIKE(?) OR カラム名 LIKE(?)', "%#{search}%", "%#{search}%"])のように記述。
-      # 検索対象カラムの数だけ"%#{search}%"を記述。
-      Post.where(['name LIKE(?) OR location LIKE(?)', "%#{search}%", "%#{search}%"])
+      Post.where(['posts.name LIKE(?) OR location LIKE(?)', "%#{search}%", "%#{search}%"])
+    else
+      Post.all
     end
   end
 

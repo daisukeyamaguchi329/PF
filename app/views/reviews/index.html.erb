@@ -3,12 +3,11 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
-          <div class="card mb-6">
             <% if @reviews.present? %>
+            <div class="card mb-6">
               <header class="card-header">
                 <p class="card-header-title"><%= @post.name %></p>
               </header>
-  
               <div class="card-content">
                 <div class="content average-score">
                   <div class="star-rating mb-2">
@@ -18,13 +17,11 @@
                   <div class="average-score-display ml-3 pt-2"><%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）</div>
                   </div>
                 </div>
-  
-                <div class="card-footer">
+              <div class="card-footer">
                   <%= link_to post_path(@post.id),class: "button card-footer-item" do %>詳細に戻る<% end %>
                   <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを投稿<% end %>
                 </div>
               </div>
-  
               <div class="comment">
                 <table class="table is-fullwidth has-text-centered">
                   <thead>
@@ -46,17 +43,15 @@
                           <%= link_to "reviews/#{review.id}", method: :delete, class: "button card-item" do %>削除<% end %>
                           <% end %>
                         </td>
-                         
                       </tr>
                     <% end %>
-  
                   </tbody>
                 </table>
               </div>
+            </div>
           <% else %>
             <div class = "no_review"><p class="is-size-1">レビューがありません。</p></div>
           <% end %>
-          </div>
         </div>
       </div>
     </div>

@@ -13,7 +13,6 @@
           </ul>
         </div>
         <% end %>
-
         <%= form_with model: @post, url:posts_path, local:true do |f| %>
           <p>店名 <span class ="post_require">必須</span></p>
           <div class = "post_space"><font color="black"><%= f.text_field :name, size: "60x1" %></font></div>

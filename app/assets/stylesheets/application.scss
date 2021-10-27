@@ -24,16 +24,21 @@
 
 
 .fa-asymmetrik{
-  margin: 10px;
   color: #ff9a44;
 }
 
-#header_visual2 {
-
-　vertical-align: middle;
+a {
+  color: redimportant;
 }
 
+#header_visual2 {
+  padding: 20px 50px;
+}
 
+li {
+  display:inline-block;
+  color: #ff9a44;
+}
 #foooter_visual {
   background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
   text-align: center;

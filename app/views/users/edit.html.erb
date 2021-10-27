@@ -1,26 +1,25 @@
- <section class="section mt-6">
-    <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-6">
-          <div class="card mb-6">
-              <%= form_with model:@user, local:true do |f| %>
-                <div class = "card-header">
-                  <p class="is-size-4 mb-3">プロフィール編集</p>
-                </div>
-                <div class = "card-content">
-                  <label for="inputName">名前</label><span class = "space"><font color="black"><%= f.text_field :name, :size=>"20",autofocus: true, id:"inputName", placeholder:"名前" %></font></span>
-                  <div class = "edit_top_spase">
-                  <label for="inputEmail">メールアドレス</label><span class = "space"><font color="black"><%= f.email_field :email, :size=>"35", placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %></font></span>
-                  </div>
-                  <label for="inputImage">プロフィール画像</label><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-                </div>
-                <div class = "card-footer">
-                  <div class = " button card-footer-item">
-                  <font color="black"><%= f.submit "編集" %></font>
-                  <div>
-                <div>
-               <% end %>
-         
+<section class="section mt-6">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="card mb-6">
+          <%= form_with model:@user, local:true do |f| %>
+            <div class = "card-header">
+              <p class="is-size-4 mb-3">プロフィール編集</p>
+            </div>
+            <div class = "card-content">
+              <label for="inputName">名前</label><span class = "space"><font color="black"><%= f.text_field :name, :size=>"20",autofocus: true, id:"inputName", placeholder:"名前" %></font></span>
+              <div class = "edit_top_spase">
+              <label for="inputEmail">メールアドレス</label><span class = "space"><font color="black"><%= f.email_field :email, :size=>"35", placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %></font></span>
+              </div>
+              <label for="inputImage">プロフィール画像</label><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+            </div>
+            <div class = "card-footer">
+              <div class = " button card-footer-item">
+              <font color="black"><%= f.submit "編集" %></font>
+              <div>
+            <div>
+           <% end %>
         </div>
       </div>
     </div>

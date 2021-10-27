@@ -7,7 +7,7 @@
         <div class="is-size-3 mb-3"><font color="red">店名か場所のキーワードで検索</font></div>
         <div class = "btn_row">
           <div class="post_search">
-          <%= form_with(url: search_posts_path, local: true, method: :get ) do |form| %>
+          <%= form_with(url: posts_path, local: true, method: :get ) do |form| %>
             <font color="black"><input type="search" name="keyword" placeholder="キーワードを入力", class="search_button"></font>
             <a href="#" class="btn-square-toy"><%= form.submit "検索", :name => nil %></a>
           <% end %>
@@ -53,7 +53,7 @@
           </div>
         <% end %>
         <% else %>
-          <div class = "no_post"><p class="is-size-1">お気に入り投稿がありません。</p></div>
+          <div class = "no_post"><p class="is-size-2">お気に入りした投稿がありません。</p></div>
         <% end %>
         <%= paginate @favorite_list %>
         </div>
