@@ -14,29 +14,29 @@
     <div>
      <header class="header">
         <div class="row" id="header_visual">
-
-            <%= link_to root_path do %>
-             <div class="col-md-6">
-               <i class="fab fa-asymmetrik fa-4x"></i>
-               
-             </div>
+            
+            <div class="col-md-6">
+             <%= link_to root_path do %>
+              <i class="fab fa-asymmetrik fa-4x"></i>
+             <% end %>
+             <% if user_signed_in? %>
+               <li><b>ようこそ<%= current_user.name %>さん</b></li>
             <% end %>
-           
+            </div>
             <% if user_signed_in? %>
              <div class="col-md-6 text-right"id="header_visual2">
              <ul>
-               <li>ようこそ<%= current_user.name %>さん</li>
-               <li><%= link_to '投稿一覧', posts_path %></li>
-               <li><%= link_to '投稿フォーム', new_post_path %></li>
-               <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
-               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+               <li><b><%= link_to '投稿一覧', posts_path %></b></li>
+               <li><b><%= link_to '投稿フォーム', new_post_path %></b></li>
+               <li><b><%= link_to 'マイページ', user_path(current_user.id) %></b></li>
+               <li><b><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></b></li>
              </ul>
              </div>
             <% else %>
              <div class="col-md-6 text-right"id="header_visual2">
              <ul>
-               <li><%= link_to "新規登録", new_user_registration_path %></li>
-               <li><%= link_to "ログイン", new_user_session_path %></li>
+               <li><b><%= link_to "新規登録", new_user_registration_path %></b></li>
+               <li><b><%= link_to "ログイン", new_user_session_path %></b></li>
              </ul>
              </div>
             <% end %>

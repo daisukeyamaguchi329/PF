@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-
   def index
-    @posts = Post.includes(:user).includes(:reviews).eager_load(:favorites).search(params[:keyword]).page(params[:page]).reverse_order
+    @posts = Post.includes(:user).includes(:reviews).eager_load(:favorites).search(params[:keyword]).page(params[:page])
   end
 
   def show
@@ -24,6 +23,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    redirect_to posts_path unless @post.user == current_user
   end
 
   def update

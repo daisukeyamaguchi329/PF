@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :image
+  default_scope -> { order(created_at: :desc) }
 
   def self.search(search)
     if search != ''

@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.includes(:reviews).page(params[:page]).reverse_order
-    favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:post_id)
-    @favorite_list = Post.find(favorites)
+    redirect_to root_path unless @user == current_user
   end
 
   def edit

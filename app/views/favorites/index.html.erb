@@ -4,7 +4,7 @@
       <div class="columns is-centered">
         <div class="column is-7">
         <% if @favorite_list.present? %>
-        <div class="is-size-3 mb-3"><font color="red">店名か場所のキーワードで検索</font></div>
+        <div class="is-size-3 mb-3"><font color="red"><b>店名か場所のキーワードで検索</b></font></div>
         <div class = "btn_row">
           <div class="post_search">
           <%= form_with(url: posts_path, local: true, method: :get ) do |form| %>

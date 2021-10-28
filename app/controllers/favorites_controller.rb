@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @favorite_list = current_user.favorites.includes(post: :user).includes(post: :favorites).includes(post: :reviews).page(params[:page]).reverse_order
+    @favorite_list = current_user.favorites.includes(post: :user).includes(post: :favorites).includes(post: :reviews).page(params[:page])
   end
 
   def create
