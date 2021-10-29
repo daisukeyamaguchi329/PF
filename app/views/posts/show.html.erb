@@ -9,6 +9,9 @@
                 <div>店名: <%= @post.name %></div>
                 <div>場所: <%= @post.location %></div>
                 <div>投稿者: <%= link_to user_path(@post.user.id) do %><%= @post.user.name %><% end %></div>
+                <%= link_to 'javascript:history.back()' do %>
+               　<button class="btn btn-secondary btn-lg">戻る</button>
+                <% end %>
                 <div class = "show_star_rating">
                  <div class="content average-score">
                   <div class="star-rating mb-2">
@@ -20,7 +23,7 @@
                   </div>
                  </div>
               </div>
-               <div class='star-btn' id="favorite_<%= @post.id %>">
+                 <div class='star-btn' id="favorite_<%= @post.id %>">
                   <% if @post.user_id != current_user.id %>
                   <div class = "favorite-star">
                     <%= render "favorites/favorite", post: @post %>
@@ -28,7 +31,6 @@
                   <% end %>
                 </div>
               </div>
-
             </div>
 
             <div class="card-content">

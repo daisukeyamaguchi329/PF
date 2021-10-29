@@ -15,6 +15,7 @@
                <%= render "favorites/favorite", post: @post %>
               </div>
              <% end %>
+
             </div>
           </div>
           <div class="card-content">
@@ -29,6 +30,7 @@
             </div>
           </div>
           <div class="card-footer">
+              <%= link_to 'javascript:history.back()',class: "button card-footer-item" do %>戻る<% end %>
               <%= link_to post_path(@post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
                <% if @post.user_id != current_user.id %>
               <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを投稿<% end %>

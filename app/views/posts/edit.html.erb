@@ -2,7 +2,11 @@
  <div class="container">
   <div class="columns is-centered">
     <div class="column is-5">
-    <p class="is-size-4 mb-3">投稿を編集</p>
+    <p class="is-size-4 mb-3">投稿を編集
+    <%= link_to post_path(@post.id) do %>
+        <button class="btn btn-secondary btn-lg" >詳細を閲覧</button>
+    <% end %>
+    </p>
     <%= form_with model: @post, url:post_path(@post.id), local:true do |f| %>
       <p>店名</p>
       <div class = "post_space"><font color="black"><%= f.text_field :name, size: "60x1" %></font></div>
