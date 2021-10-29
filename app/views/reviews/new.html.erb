@@ -31,7 +31,7 @@
           <%= f.hidden_field :rate, id: "rating-value" %>
           <%= f.text_area :comment, class: "textarea" %>
           <%= f.submit "保存", class: "button mt-3" %>
-          <%= link_to "レビューを閲覧", post_reviews_path(@post), class: "button light ml-3 mt-3" %>
+          <%= link_to "レビューを閲覧", post_reviews_path(@post.id), class: "button light ml-3 mt-3" %>
           <% end %>
         </div>
         <%= render "reviews/review" %>

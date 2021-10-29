@@ -3,31 +3,41 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
-            
-            <div class="card mb-6">
-              <div class="card-header">
-                <p class="card-header-title"><%= @post.name %></p>
+
+        <div class="card mb-6">
+          <div class="card-header">
+            <div>店名: <%= @post.name %></div>
+            <div>場所: <%= @post.location %></div>
+            <div>投稿者: <%= link_to user_path(@post.user.id) do %><%= @post.user.name %><% end %></div>
+            <div class='star-btn' id="favorite_<%= @post.id %>">
+             <% if @post.user_id != current_user.id %>
+              <div class = "favorite-star">
+               <%= render "favorites/favorite", post: @post %>
               </div>
-              <div class="card-content">
-                <div class="index_star_rating2">
-                 <div class="content average-score">
-                  <div class="star-rating mb-2">
-                    <div class="star-rating-front" style="width: <%= @post.review_rate_percentage %>%">★★★★★</div>
-                    <div class="star-rating-back">★★★★★</div>
-                   </div>
-                  <div class="average-score-display ml-3 pt-2"><%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）</div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                  <%= link_to post_path(@post.id),class: "button card-footer-item" do %>詳細に戻る<% end %>
-                   <% if @post.user_id != current_user.id %>
-                  <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを投稿<% end %>
-                  <% end %>
-                </div>
-              </div>
+             <% end %>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="index_star_rating2">
+             <div class="content average-score">
+              <div class="star-rating mb-2">
+                <div class="star-rating-front" style="width: <%= @post.review_rate_percentage %>%">★★★★★</div>
+                <div class="star-rating-back">★★★★★</div>
+               </div>
+              <div class="average-score-display ml-3 pt-2"><%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）</div>
+            </div>
+            </div>
+          </div>
+          <div class="card-footer">
+              <%= link_to post_path(@post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
+               <% if @post.user_id != current_user.id %>
+              <%= link_to  new_post_review_path(@post.id),class: "button card-footer-item" do %>レビューを投稿<% end %>
+              <% end %>
+          </div>
+        </div>
+
           <% if @reviews.present? %>
-              <div class="comment">
+             <div class="comment">
                 <table class="table is-fullwidth has-text-centered">
                   <thead>
                     <tr>
@@ -40,7 +50,7 @@
                   <tbody>
                     <% @reviews.each do |review| %>
                       <tr>
-                        <td width="25%"><%= review.user.name %></td>
+                        <td width="25%"><%= link_to user_path(review.user.id) do %><%= review.user.name %><% end %></td>
                         <td width="15%"><%= review.rate %>点</td>
                         <td width="50%"><%= simple_format(review.comment) %></td>
                         <td width="10%">
@@ -53,9 +63,8 @@
                   </tbody>
                 </table>
               </div>
-            </div>
           <% else %>
-            <div class = "no_review"><p class="is-size-1">レビューがありません。</p></div>
+             <div class = "no_review"><p class="is-size-1">レビューがありません。</p></div>
           <% end %>
         </div>
       </div>

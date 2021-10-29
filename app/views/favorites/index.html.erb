@@ -50,7 +50,7 @@
           </div>
             <div class="card-footer">
               <%= link_to post_path(favorite.post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
-              <%= link_to post_reviews_path(favorite.post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
+              <%= link_to post_reviews_path(favorite.post.id),class: "button card-footer-item" do %>レビューを閲覧<% end %>
             </div>
           </div>
         <% end %>

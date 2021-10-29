@@ -4,7 +4,11 @@
       <div class="column is-7">
         <div class="card mb-6">
           <div class="card-header">
-           <p>名前: <%= @user.name %><br>メールアドレス: <%= @user.email %></p>
+           <p>名前: <%= @user.name %><br>
+           <% if @user.id == current_user.id %>
+            メールアドレス: <%= @user.email %>
+           <% end %>
+           </p>
           </div>
           <div class="card-content">
               <p>プロフィール画像</p>
@@ -49,7 +53,7 @@
           </div>
           <div class="card-footer">
             <%= link_to post_path(post.id),class: "button card-footer-item" do %>詳細を閲覧<% end %>
-            <%= link_to post_reviews_path(post),class: "button card-footer-item" do %>レビューを閲覧<% end %>
+            <%= link_to post_reviews_path(post.id),class: "button card-footer-item" do %>レビューを閲覧<% end %>
           </div>
         </div>
         <% end %>
