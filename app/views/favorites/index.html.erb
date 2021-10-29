@@ -21,7 +21,7 @@
             <div class="card-header">
               <div>店名: <%= favorite.post.name %></div>
               <div>場所: <%= favorite.post.location %></div>
-              <div>投稿者: <%= favorite.post.user.name %></div>
+              <div>投稿者: <%= link_to user_path(favorite.post.user.id) do %><%= favorite.post.user.name %><% end %></div>
               <div class='star-btn' id="favorite_<%= favorite.post.id %>">
                 <% if favorite.post.user_id != current_user.id %>
                 <div class = "favorite-star">

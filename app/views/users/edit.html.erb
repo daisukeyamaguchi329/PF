@@ -3,7 +3,7 @@
     <div class="columns is-centered">
       <div class="column is-6">
         <div class="card mb-6">
-          <%= form_with model:@user, local:true do |f| %>
+           <%= form_with model:@user, local:true do |f| %>
             <div class = "card-header">
               <p class="is-size-4 mb-3">プロフィール編集</p>
             </div>
@@ -12,13 +12,16 @@
               <div class = "edit_top_spase">
               <label for="inputEmail">メールアドレス</label><span class = "space"><font color="black"><%= f.email_field :email, :size=>"35", placeholder: "メールアドレス", autofocus: true, autocomplete: "email" %></font></span>
               </div>
+              <div class = "edit_top_spase">
               <label for="inputImage">プロフィール画像</label><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+              </div>
+              <%= link_to "パスワードを変更", edit_user_registration_path(@user.id) %>
             </div>
             <div class = "card-footer">
               <div class = " button card-footer-item">
-              <font color="black"><%= f.submit "編集" %></font>
-              <div>
-            <div>
+               <font color="black"><%= f.submit "編集" %></font>
+              </div>
+            </div>
            <% end %>
         </div>
       </div>

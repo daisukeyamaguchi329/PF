@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag('icon3.png') %>
     <title>PF</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +15,6 @@
     <div>
      <header class="header">
         <div class="row" id="header_visual">
-            
             <div class="col-md-6">
              <%= link_to root_path do %>
               <i class="fab fa-asymmetrik fa-4x"></i>
@@ -24,7 +24,7 @@
             <% end %>
             </div>
             <% if user_signed_in? %>
-             <div class="col-md-6 text-right"id="header_visual2">
+             <div class="col-md-6 text-right" id="header_visual2">
              <ul>
                <li><b><%= link_to '投稿一覧', posts_path %></b></li>
                <li><b><%= link_to '投稿フォーム', new_post_path %></b></li>

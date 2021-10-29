@@ -1,7 +1,7 @@
 <div class = "profile_page">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-7">
+      <div class="column is-4">
         <div class="card mb-6">
           <div class="card-header">
            <p>名前: <%= @user.name %><br>
@@ -12,16 +12,21 @@
           </div>
           <div class="card-content">
               <p>プロフィール画像</p>
-              <p><div class="image2"><%= attachment_image_tag @user, :profile_image, format:'jpg', fallback:"no_image" %></div></p>
+              <p><div class="image2"><%= attachment_image_tag @user, :profile_image, format:'jpeg', fallback:"no_image" %></div></p>
           </div>
           <div class="card-footer">
             <% if @user.id == current_user.id %>
             <%= link_to edit_user_path(@user),class: "button card-footer-item" do %>プロフィール編集<% end %>
-            <% end %>
             <%= link_to new_contact_path,class: "button card-footer-item" do %>お問い合わせフォーム<% end %>
+            <% end %>
           </div>
         </div>
+      </div>
+      </div>
+    <div class="columns is-centered">
+      <div class="column is-7">
         <% @posts.each do |post| %>
+        <div class="is-size-3 mb-3"><%= post.user.name %>さんの投稿</div>
         <div class="card mb-6">
           <div class="card-header">
               <div class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %><br>投稿者: <%= post.user.name %></div>
