@@ -22,9 +22,9 @@
           <div class = "post_space"><%= f.attachment_field :image %></div>
           <p>営業時間 <span class ="post_require">必須</span></p>
           <div class = "post_space">
-          <font color="black"><%= f.time_select :business_hours_start, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
+          <font color="black"><%= f.time_select :business_hours_start, {start_hour: 0, end_hour:23,minute_step:15,ignore_data:true},{class: 'time-box'} %></font>
           〜
-          <font color="black"><%= f.time_select :business_hours_end, {include_blank: true, start_hour: 0, end_hour:23,minute_step:15},{class: 'time-box'} %></font>
+          <font color="black"><%= f.time_select :business_hours_end, {start_hour: 0, end_hour:23,minute_step:15,ignore_data:true},{class: 'time-box'} %></font>
           </div>
           <p>平均予算 <span class ="post_require">必須</span></p>
           <div class = "post_space"><font color="black"><%= f.text_field :charge_system, size: "8x1" %>円</font> 〜 <font color="black"><%= f.text_field :charge_system2, size: "8x1" %>円</font></div>
