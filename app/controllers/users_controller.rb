@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.includes(:reviews).page(params[:page]).reverse_order
+    @posts = @user.posts.includes(:reviews).page(params[:page])
   end
 
   def edit

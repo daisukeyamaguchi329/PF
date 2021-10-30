@@ -25,8 +25,9 @@
       </div>
     <div class="columns is-centered">
       <div class="column is-7">
+      <div class="is-size-3 mb-3"><%= @user.name %>さんの投稿</div>
+      <% if @posts.present? %>
         <% @posts.each do |post| %>
-        <div class="is-size-3 mb-3"><%= post.user.name %>さんの投稿</div>
         <div class="card mb-6">
           <div class="card-header">
               <div class="card-header-name">店名: <%= post.name %><br>場所: <%= post.location %><br>投稿者: <%= post.user.name %></div>
@@ -62,7 +63,10 @@
           </div>
         </div>
         <% end %>
-        <%= paginate @posts %>
+        <% else %>
+          <div><p class="is-size-1">投稿がありません。</p></div>
+        <% end %>
+        <%= paginate @reviews %>
       </div>
     </div>
   </div>

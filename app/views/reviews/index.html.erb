@@ -15,11 +15,10 @@
                <%= render "favorites/favorite", post: @post %>
               </div>
              <% end %>
-
             </div>
           </div>
           <div class="card-content">
-            <div class="index_star_rating2">
+            <div class="index_review4">
              <div class="content average-score">
               <div class="star-rating mb-2">
                 <div class="star-rating-front" style="width: <%= @post.review_rate_percentage %>%">★★★★★</div>
@@ -28,6 +27,8 @@
               <div class="average-score-display ml-3 pt-2"><%= @post.avg_rate %>点（<%= @post.reviews.count %>件のレビュー）</div>
             </div>
             </div>
+            <div class="index_review5">
+              </div>
           </div>
           <div class="card-footer">
               <%= link_to 'javascript:history.back()',class: "button card-footer-item" do %>戻る<% end %>
