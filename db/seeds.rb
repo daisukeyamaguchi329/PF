@@ -5,13 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-user = User.create!(email: "ENV['SMTP_USERNAME']",
-  password:  "ENV['ADMIN_PASSWORD']",
-  password_confirmation: "ENV['ADMIN_PASSWORD']",
-  nickname:  "管理者",
-  occupation: "管理者",
-  position: "管理者",
-  admin: true)
-
-  user.image.attach(io: File.open(Rails.root.join("app/assets/images/homekatajiten.png")), filename: "homekatajiten.png")
