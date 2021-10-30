@@ -12,7 +12,6 @@ user = User.create!(email: "ENV['SMTP_USERNAME']",
   nickname:  "管理者",
   occupation: "管理者",
   position: "管理者",
- 
   admin: true)
 
   user.image.attach(io: File.open(Rails.root.join("app/assets/images/homekatajiten.png")), filename: "homekatajiten.png")

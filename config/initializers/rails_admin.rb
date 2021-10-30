@@ -8,6 +8,13 @@ RailsAdmin.config do |config|
    end
    config.current_user_method(&:current_user)
 
+  # == Basic Auth ==
+  config.authorize_with do
+    authenticate_or_request_with_http_basic('Login required') do |username, password|
+      username == ENV['RAILS_ADMIN_USER'] &&
+      password == ENV['RAILS_ADMIN_PASSWORD']
+    end
+  end
 
   ## == CancanCan ==
   #config.authorize_with :cancancan
