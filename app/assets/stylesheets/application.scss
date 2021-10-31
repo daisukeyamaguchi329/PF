@@ -18,7 +18,6 @@
 
 @import "bulma";
 
-
 #header_visual {
   background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
  background-blend-mode: screen;
@@ -83,8 +82,11 @@ li {
 main {
  min-height: 100vh;
  color : white;
- background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
  font-family: sans-serif;
+ background-image: url(pf.jpeg);
+ background-size: cover;
+ height: 100%;
+ width: 100%;
 }
 
 
